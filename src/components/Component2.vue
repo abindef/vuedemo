@@ -1,7 +1,7 @@
-<!-- aaa -->
+<!-- 父控件传值 -->
 <template>
 <div class='bbb'>
-    <button>父控件传参</button>
+    <button>父控件传参{{title}}</button>
 </div>
 </template>
 
@@ -9,6 +9,7 @@
 
 export default {
 name:'ButtonParm',
+props:['title'],
 components: {},
 data() {
 //这里存放数据

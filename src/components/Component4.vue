@@ -1,14 +1,17 @@
-<!-- aaa -->
+<!-- 父控件传对象 -->
 <template>
-<div class='bbb'>
-    <button>对象传输</button>
+<div class='bbb' style="display:block" >
+        <p>{{post.title}}</p><button @click="show(post)">详细</button>
+        <div v-html="post.content"></div>
+        
 </div>
 </template>
 
 <script>
 
 export default {
-name:'ButtonParm',
+name:'blog-post',
+props:['post'],
 components: {},
 data() {
 //这里存放数据
@@ -22,7 +25,9 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-
+show(post){
+    alert(post.id)
+}
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {

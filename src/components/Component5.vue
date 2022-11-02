@@ -1,19 +1,19 @@
-<!-- aaa -->
+<!-- 父子组件通信，点击父控件输出子组件中的方法 -->
 <template>
 <div class='bbb'>
-    <button>综合</button>
+    <div>child内容</div>
 </div>
 </template>
 
 <script>
 
 export default {
-name:'ButtonParm',
+name:'say-hello',
 components: {},
 data() {
 //这里存放数据
 return {
-
+    name:"我是child",
 };
 },
 //监听属性 类似于data概念
@@ -22,7 +22,11 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-
+    sayHello()
+    {
+        console.log("hello");
+        alert("hello");
+    }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {

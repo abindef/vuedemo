@@ -1,7 +1,7 @@
-<!-- aaa -->
+<!-- 子控件传参到父控件 -->
 <template>
 <div class='bbb'>
-    <button>子控件传参</button>
+    <button @click="func()">子控件传值</button>
 </div>
 </template>
 
@@ -22,7 +22,10 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-
+func(){
+    //func 为父控件方法名，
+    this.$emit('func',"arg:--1","arg:--2")
+}
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
