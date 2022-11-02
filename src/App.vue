@@ -3,10 +3,14 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Component1></Component1>
-    <Component2 title="title1 :"></Component2>
-    <Component3></Component3>
-    <Component4></Component4>
-    <Component5></Component5>
+    <Component2 title="title1122 :"></Component2>
+    <Component3 @func="func"></Component3>
+    <Component4  
+    v-for="post in posts"
+    v-bind:key="post.id"
+    v-bind:post="post"></Component4>
+    <button @click="sayHello">父子通信</button>
+    <Component5 ref="childFef"></Component5>
   </div>
 </template>
 
@@ -27,7 +31,31 @@ export default {
     Component4,
     Component5
   },
-  props:['title']
+   
+  methods:{
+    func(arg1,arg2){
+        alert(arg1)
+        console.log(arg1);
+        console.log(arg2);
+    },
+    sayHello(){
+        this.childFef.sayHello();
+    }
+  },
+  data:function() {
+        return {
+            posts: [
+            { id: 1, title: '标题1',content:'内容1' },
+            { id: 2, title: '标题2',content:'内容2' },
+            { id: 3, title: '标题3' ,content:'内容3'}
+            ],
+            //childFef:null,
+        };
+    },
+     mounted(){
+        this.childFef=this.$refs.childFef;
+        console.log(this.childFef.name);
+    },
 }
 </script>
 
